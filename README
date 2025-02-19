@@ -1,16 +1,12 @@
-[]CONTROLER
-[]USECASE
-[]TRYCACHT NO CONTROLER
-[]TALVEZ ERRO PERSONALIZADO NO USECASE OU NO CONTROLER
-[]COLOCAR AS TIPAGENS DE RETORNO DAS CLASSSES USE CASE E CONTROLER.
-[]USAR TYPEORM OU PRISMA PARA CONECTAR COM O BANCO DE DADOS
-[]ADICIONAR SEQUELIZE COMO BANCO LOCAL
-[]ADICIONAR REPOSITORY
 []configurar vitest
 []aplicar supertest para testes unitários usando vitest
-[]fazer as queries certinhas 
-
-
+[]fazer o testes
+[]separar as responsabilidade por utils de cada coisa que está acontecendo no use case
+[]fazer o npm run build, o npm run test:e2e e etc 
+[] tentar organizar melhor as pastas 
+[] baixar o projeto do zero e rodar todos os comandos para ver se vai funcionar.
+[] lembrar de fazer importar os dados se o cara quiser rodar só o supertest.
+[] ver se faz sentido fecha a conexão do prismas
 
 start 
 npm install

@@ -1,12 +1,10 @@
 
 import express from 'express'
 import cors from 'cors'
-import { routes } from './routes/routes'
+import fastify from 'fastify'
+import { awardsRoutes } from './routes/awards'
 
-export const app = express()
+export const app = fastify()
 
-app.use(express.json())
-app.use(cors())
-
-app.use(routes)
+app.register(awardsRoutes)
 
