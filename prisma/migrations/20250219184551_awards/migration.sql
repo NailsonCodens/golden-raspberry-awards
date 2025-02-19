@@ -7,3 +7,6 @@ CREATE TABLE "awards" (
     "producers" TEXT NOT NULL,
     "winner" TEXT NOT NULL
 );
+
+-- CreateIndex
+CREATE UNIQUE INDEX "awards_year_title_key" ON "awards"("year", "title");

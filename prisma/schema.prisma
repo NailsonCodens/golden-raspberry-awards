@@ -17,4 +17,6 @@ model awards {
   studios   String
   producers String
   winner    String
+
+  @@unique([year, title], name: "year_title_unique")
 }

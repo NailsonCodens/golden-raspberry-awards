@@ -17,15 +17,13 @@ export class importCSV{
   async execute(){
     const fileData = path.join(__dirname, '../data/move-list.csv')
   
-    const results: Award[] = [];
+    const awards: Award[] = [];
   
     return new Promise<void>((resolve, reject) => {
       createReadStream(fileData)
         .pipe(csv({ separator: ";" }))
         .on("data", (data: Award) => {
-
-          console.log(data)
-          results.push({
+          awards.push({
             year: Number(data.year),
             title: data.title,
             studios: data.studios,
@@ -35,18 +33,17 @@ export class importCSV{
         })
         .on("end", async () => {
 
-          if (results.length === 0) {
+          if (awards.length === 0) {
             console.warn("Aviso: Nenhum dado encontrado no CSV.");
             return resolve();
           }
 
-          console.log(results)
-
           try {
-            // Insere os dados no repositório
-            await this.awardsRepository.importData(results);
-            console.log(`Importação concluída: ${results.length} registros inseridos.`);
-          } catch (error) {
+            for (const award of awards) {
+              await this.awardsRepository.importData(award);
+            }
+            console.log(`Importação concluída: ${awards.length} registros inseridos ou atualizados.`);
+          }catch (error) {
             console.error("Erro ao inserir dados no banco:", error);
           }
           

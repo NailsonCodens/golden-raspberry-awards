@@ -9,3 +9,12 @@
 []configurar vitest
 []aplicar supertest para testes unitários usando vitest
 []fazer as queries certinhas 
+
+
+
+start 
+npm install
+npx prisma migrate dev
+npm run dev 
+npm run test
+
