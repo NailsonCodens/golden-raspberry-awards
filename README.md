@@ -11,6 +11,8 @@
 
 <h4 align="center"><b>Localhost endpoint:</b> localhost:3000/v1/award/intervals </h4> 
 
+## Requirement
+- NodeJs 18:00 ou higher;
 
 ## Setup application
 
