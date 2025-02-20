@@ -1,12 +1,11 @@
 import request from 'supertest'
-import { app } from '../../src/app'
 import { afterAll, beforeAll, beforeEach, describe, expect, it } from 'vitest'
 import { exec } from 'child_process';
 import { promisify } from 'util';
-import { AwardsRepository } from '../../src/repository/awards-repository';
+
 import { importCSV } from '../../src/utils/importCSV';
-import { prisma } from '../../src/lib/prisma';
-import { waitForDb } from './utils/waitDb';
+import { AwardsRepository } from '../../src/repository/awards-repository';
+import { app } from '../../src/app';
 
 const execPromise = promisify(exec);
 
@@ -19,8 +18,6 @@ describe('CheckIn Metrics (e2e)', () => {
       const importCsv = new importCSV(awardRepository);
   
       await importCsv.execute();
-  
-      await waitForDb()
 
       await app.ready()
     })
@@ -44,7 +41,7 @@ describe('CheckIn Metrics (e2e)', () => {
   })
 
 
-  it('Should be able to have min and max property', async () => {
+  it('Should be able to have min and max property with their parameters', async () => {
     const response = await request(app.server).get('/v1/award/intervals').send();
 
     expect(response.body.max).toEqual(

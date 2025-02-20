@@ -2,6 +2,8 @@ import { createReadStream } from "fs";
 import csv from "csv-parser";
 import path from "path";
 import { IAwardsRepository } from "../repository/i-awards-repository";
+import { promisify } from "util";
+import { exec } from "child_process";
 
 export interface Award {
   year: number;
@@ -11,10 +13,16 @@ export interface Award {
   winner: string
 }
 
+const execPromise = promisify(exec);
+
 export class importCSV{
   constructor(private awardsRepository: IAwardsRepository){}
 
   async execute(){
+
+    await execPromise('npx prisma migrate dev --name awards');
+
+    console.log('Começando o processo de importação dos dados, só um momento.')
     const fileData = path.join(__dirname, '../data/move-list.csv')
   
     const awards: Award[] = [];
@@ -52,7 +60,7 @@ export class importCSV{
         .on("error", (error) => {
           console.error("Erro ao ler o CSV:", error);
           reject(error);
-        });      });
+        });      
+      });
   }
-  
 }
