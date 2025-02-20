@@ -1,12 +1,8 @@
-[]separar as responsabilidade por utils de cada coisa que está acontecendo no use case
-[]fazer o npm run build, o npm run test:e2e e etc 
+[] separar as responsabilidade por utils de cada coisa que está acontecendo no use case
 [] tentar organizar melhor as pastas 
 [] baixar o projeto do zero e rodar todos os comandos para ver se vai funcionar.
 [] ver se faz sentido fecha a conexão do prismas
+[] FAZER README DO GITHUB
 
-start 
-npm install
-npx prisma migrate dev
-npm run dev 
-npm run test
+
 
