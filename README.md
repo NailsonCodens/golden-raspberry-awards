@@ -70,3 +70,6 @@ npm run build
 ```
 node build/server.js
 ```
+
+
+Obrigado pela oportunidade de participar deste teste Outsera!
