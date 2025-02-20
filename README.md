@@ -53,6 +53,17 @@ DATABASE_URL="file:./dev.db"
 npm run dev 
 ```
 
+#### Where are hte csv list? 
+
+##### Development mode
+```
+src/data/move-list.csv 
+```
+##### Build mode
+```
+build/data/move-list.csv 
+```
+
 #### Run e2e tests
 
 ```
@@ -64,6 +75,7 @@ npm run test:e2e
 ```
 npm run build
 ```
+
 
 #### Run the build version
 
