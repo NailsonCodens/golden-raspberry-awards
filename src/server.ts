@@ -16,5 +16,5 @@ app
   
     await importCsv.execute()
 
-    console.log('Http Server Running!')
+    console.log(`Http Server Running! ${env.PORT}`)
   })
