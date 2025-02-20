@@ -17,7 +17,7 @@ export class AwardsIntervalUseCase{
     const producerIntervals: Record<string, number[]> = {};
 
     awardsWinners.forEach(({ producers, year }) => {
-      const producerList = producers.split(',').map((p) => p.trim()); // Supondo que produtores possam ser múltiplos
+      const producerList = producers.split(',').map((p) => p.trim());
   
       producerList.forEach((producer) => {
         if (!producerIntervals[producer]) {
@@ -44,11 +44,9 @@ export class AwardsIntervalUseCase{
       }
     }
   
-    // Encontrar os menores e maiores intervalos
     const minInterval = Math.min(...intervals.map((i) => i.interval));
     const maxInterval = Math.max(...intervals.map((i) => i.interval));
   
-    // Filtrar os resultados que correspondem aos menores e maiores intervalos
     const min = intervals.filter((i) => i.interval === minInterval);
     const max = intervals.filter((i) => i.interval === maxInterval);
   
