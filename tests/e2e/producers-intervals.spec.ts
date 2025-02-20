@@ -3,7 +3,7 @@ import { afterAll, beforeAll, beforeEach, describe, expect, it } from 'vitest'
 import { exec } from 'child_process';
 import { promisify } from 'util';
 
-import { importCSV } from '../../src/utils/importCSV';
+import { importCSV } from '../../src/core/importCSV';
 import { AwardsRepository } from '../../src/repository/awards-repository';
 import { app } from '../../src/app';
 

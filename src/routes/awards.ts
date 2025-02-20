@@ -2,7 +2,7 @@ import { Router } from "express";
 import { AwardsIntervalController } from "../controllers/awards-intervals-controller";
 import { FastifyInstance } from "fastify";
 import { AwardsRepository } from "../repository/awards-repository";
-import { importCSV } from "../utils/importCSV";
+import { importCSV } from "../core/importCSV";
 
 
 const awardsIntervalsController = new AwardsIntervalController()
