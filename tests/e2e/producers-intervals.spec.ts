@@ -9,7 +9,7 @@ import { app } from '../../src/app';
 
 const execPromise = promisify(exec);
 
-describe('CheckIn Metrics (e2e)', () => {
+describe('Golden Raspberry Awards (e2e)', () => {
 
     beforeAll(async () => {
       await execPromise('npx prisma migrate dev --name awards');
@@ -26,7 +26,7 @@ describe('CheckIn Metrics (e2e)', () => {
       await app.close()
     })
 
-  it('Should be able to have min and max property', async() => {
+  it('Should be able to have min and max property and their properties', async() => {
 
     const response = await request(app.server)
       .get('/v1/award/intervals')
