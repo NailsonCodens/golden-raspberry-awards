@@ -38,37 +38,28 @@ describe('CheckIn Metrics (e2e)', () => {
       expect(response.body).toHaveProperty('max');
       expect(Array.isArray(response.body.min)).toBe(true);
       expect(Array.isArray(response.body.max)).toBe(true);
+
+      expect(response.body.max).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({
+            producer: expect.any(String),
+            interval: expect.any(Number),
+            previousWin: expect.any(Number),
+            followingWin: expect.any(Number),
+          }),
+        ])
+      );
+
+      expect(response.body.min).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({
+            producer: expect.any(String),
+            interval: expect.any(Number),
+            previousWin: expect.any(Number),
+            followingWin: expect.any(Number),
+          }),
+        ])
+      );      
   })
-
-
-  it('Should be able to have min and max property with their parameters', async () => {
-    const response = await request(app.server).get('/v1/award/intervals').send();
-
-    expect(response.body.max).toEqual(
-      expect.arrayContaining([
-        expect.objectContaining({
-          producer: expect.any(String),
-          interval: expect.any(Number),
-          previousWin: expect.any(Number),
-          followingWin: expect.any(Number),
-        }),
-      ])
-    );
-  });
-
-  it('Should be able to have min and min property', async () => {
-    const response = await request(app.server).get('/v1/award/intervals').send();
-
-    expect(response.body.min).toEqual(
-      expect.arrayContaining([
-        expect.objectContaining({
-          producer: expect.any(String),
-          interval: expect.any(Number),
-          previousWin: expect.any(Number),
-          followingWin: expect.any(Number),
-        }),
-      ])
-    );
-  });
 })
 
