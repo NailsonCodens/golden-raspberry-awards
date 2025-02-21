@@ -1,5 +1,4 @@
 import { Award } from "../core/importCSV";
-import { prisma } from "../lib/prisma";
 import { db } from "../lib/setupSqlite";
 import { AwardsDataInput, IAwardsRepository } from "./i-awards-repository";
 
