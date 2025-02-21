@@ -22,8 +22,7 @@ export class AwardsRepository implements IAwardsRepository {
     const winners = await prisma.awards.findMany({
       where: {
         winner: "yes"
-      },
-      orderBy: { year: 'asc' }
+      }
     })
 
     return winners

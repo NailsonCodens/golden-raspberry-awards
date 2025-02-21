@@ -39,24 +39,24 @@ describe('Golden Raspberry Awards (e2e)', () => {
       expect(Array.isArray(response.body.min)).toBe(true);
       expect(Array.isArray(response.body.max)).toBe(true);
 
-      expect(response.body.max).toEqual(
+      expect(response.body.min).toEqual(
         expect.arrayContaining([
           expect.objectContaining({
-            producer: expect.any(String),
-            interval: expect.any(Number),
-            previousWin: expect.any(Number),
-            followingWin: expect.any(Number),
+            producer: 'Joel Silver',
+            interval: 1,
+            previousWin: 1990,
+            followingWin: 1991,
           }),
         ])
       );
 
-      expect(response.body.min).toEqual(
+      expect(response.body.max).toEqual(
         expect.arrayContaining([
           expect.objectContaining({
-            producer: expect.any(String),
-            interval: expect.any(Number),
-            previousWin: expect.any(Number),
-            followingWin: expect.any(Number),
+            producer: 'Matthew Vaughn',
+            interval: 13,
+            previousWin: 2002,
+            followingWin: 2015,
           }),
         ])
       );      
