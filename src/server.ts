@@ -2,6 +2,7 @@ import { app } from "./app";
 import { env } from './env'
 import { AwardsRepository } from "./repository/awards-repository";
 import { importCSV } from "./core/importCSV";
+import { InMemoryAwardsRepository } from "./repository/in-memory-awards-repository";
 
 app
   .listen({
@@ -9,8 +10,8 @@ app
     port: env.PORT,
   })
   .then(async() => {
-    const awardRepository = new AwardsRepository()
-    const importCsv = new importCSV(awardRepository)
+    const inMemoryRepository = new InMemoryAwardsRepository()
+    const importCsv = new importCSV(inMemoryRepository)
     await importCsv.execute()
 
     console.log('Http Server Running!')

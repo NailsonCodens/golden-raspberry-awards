@@ -6,15 +6,18 @@ import { promisify } from 'util';
 import { importCSV } from '../../src/core/importCSV';
 import { AwardsRepository } from '../../src/repository/awards-repository';
 import { app } from '../../src/app';
+import { IAwardsRepository } from '../../src/repository/i-awards-repository';
+import { InMemoryAwardsRepository } from '../../src/repository/in-memory-awards-repository';
 
 const execPromise = promisify(exec);
+
+let awardRepository: IAwardsRepository;
 
 describe('Golden Raspberry Awards (e2e)', () => {
 
     beforeAll(async () => {
-      await execPromise('npx prisma migrate dev --name awards');
+      awardRepository = new InMemoryAwardsRepository()
 
-      const awardRepository = new AwardsRepository();
       const importCsv = new importCSV(awardRepository);
   
       await importCsv.execute();

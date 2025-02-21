@@ -4,6 +4,7 @@ import path from "path";
 import { IAwardsRepository } from "../repository/i-awards-repository";
 import { promisify } from "util";
 import { exec } from "child_process";
+import { setupDatabase } from "../lib/setupSqlite";
 
 export interface Award {
   year: number;
@@ -20,7 +21,7 @@ export class importCSV{
 
   async execute(){
 
-    await execPromise('npx prisma migrate dev --name awards');
+    await setupDatabase()
 
     console.log('Começando o processo de importação dos dados, só um momento.')
     const fileData = path.join(__dirname, '../data/move-list.csv')
