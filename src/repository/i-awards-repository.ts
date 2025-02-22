@@ -1,4 +1,3 @@
-import { awards, Prisma } from "@prisma/client";
 
 export interface AwardsDataInput{
   year: number;
