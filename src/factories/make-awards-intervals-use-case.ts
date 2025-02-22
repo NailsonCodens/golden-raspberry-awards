@@ -1,4 +1,3 @@
-import { AwardsRepository } from "../repository/awards-repository";
 import { InMemoryAwardsRepository } from "../repository/in-memory-awards-repository";
 import { AwardsIntervalUseCase } from "../use-case/awards-intervals-use-case";
 

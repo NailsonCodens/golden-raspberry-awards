@@ -4,7 +4,6 @@ import { exec } from 'child_process';
 import { promisify } from 'util';
 
 import { importCSV } from '../../src/core/importCSV';
-import { AwardsRepository } from '../../src/repository/awards-repository';
 import { app } from '../../src/app';
 import { IAwardsRepository } from '../../src/repository/i-awards-repository';
 import { InMemoryAwardsRepository } from '../../src/repository/in-memory-awards-repository';

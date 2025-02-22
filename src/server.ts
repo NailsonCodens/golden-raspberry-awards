@@ -1,6 +1,5 @@
 import { app } from "./app";
 import { env } from './env'
-import { AwardsRepository } from "./repository/awards-repository";
 import { importCSV } from "./core/importCSV";
 import { InMemoryAwardsRepository } from "./repository/in-memory-awards-repository";
 
